@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nachhilfe für Statik, Kinematik & Mathematik | Hochschule Hannover</title>
+  <meta name="description" content="Professionelle Nachhilfe für Statik, Kinematik, Mathematik 1 und 2 sowie weitere Fächer auf Anfrage – mit besonderem Fokus auf Studiengänge der Hochschule Hannover." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg-soft:#121b2e;
+      --card:#ffffff;
+      --text:#122033;
+      --muted:#5f6b7a;
+      --line:#e6ebf2;
+      --accent:#0d6efd;
+      --accent-2:#1d8bff;
+      --light:#f5f9ff;
+      --success:#0f9d58;
+      --shadow:0 18px 45px rgba(11,18,32,0.14);
+      --radius:20px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      background:rgba(11,18,32,0.92);
+      color:#fff;
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      min-height:78px;
+    }
+
+    .brand{
+      font-weight:800;
+      letter-spacing:0.2px;
+      font-size:1.08rem;
+    }
+
+    .brand span{
+      color:#7fb4ff;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:26px;
+      align-items:center;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,0.92);
+      font-weight:500;
+      font-size:0.96rem;
+    }
+
+    .nav-links a:hover{color:#9bc4ff}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      transition:0.25s ease;
+      border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff;
+      box-shadow:0 14px 30px rgba(13,110,253,0.24);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:0 18px 35px rgba(13,110,253,0.3);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.08);
+      border-color:rgba(255,255,255,0.14);
+      color:#fff;
+    }
+
+    .hero{
+      background:
+        radial-gradient(circle at top right, rgba(29,139,255,0.18), transparent 24%),
+        radial-gradient(circle at left center, rgba(127,180,255,0.18), transparent 18%),
+        linear-gradient(135deg, #0b1220 0%, #111c31 55%, #132544 100%);
+      color:#fff;
+      padding:72px 0 82px;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:44px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      background:rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:999px;
+      font-size:0.92rem;
+      font-weight:600;
+      margin-bottom:20px;
+    }
+
+    .hero h1{
+      margin:0 0 18px;
+      font-size:clamp(2.4rem, 5vw, 4.4rem);
+      line-height:1.06;
+      letter-spacing:-0.03em;
+    }
+
+    .hero p{
+      margin:0 0 28px;
+      font-size:1.08rem;
+      color:rgba(255,255,255,0.85);
+      max-width:720px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:28px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+
+    .hero-point{
+      padding:18px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-point strong{
+      display:block;
+      font-size:1.05rem;
+      margin-bottom:4px;
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card h3{
+      margin-top:0;
+      margin-bottom:14px;
+      font-size:1.2rem;
+    }
+
+    .info-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .info-item{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      padding:15px 16px;
+      border-radius:16px;
+      color:rgba(255,255,255,0.92);
+    }
+
+    .section{
+      padding:88px 0;
+    }
+
+    .section.light{
+      background:var(--light);
+    }
+
+    .section-title{
+      max-width:760px;
+      margin-bottom:34px;
+    }
+
+    .section-title .tag{
+      display:inline-block;
+      color:var(--accent);
+      font-weight:800;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      font-size:0.82rem;
+      margin-bottom:12px;
+    }
+
+    .section-title h2{
+      margin:0 0 12px;
+      font-size:clamp(1.9rem, 3vw, 3rem);
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:24px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:24px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 10px 28px rgba(18,32,51,0.06);
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.22rem;
+    }
+
+    .card p{
+      margin:0 0 14px;
+      color:var(--muted);
+    }
+
+    .checklist{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .checklist li{
+      position:relative;
+      padding-left:28px;
+      color:#2a3646;
+    }
+
+    .checklist li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--success);
+      font-weight:800;
+    }
+
+    .audience{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .highlight{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .highlight h3{
+      margin:0 0 12px;
+      font-size:1.35rem;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+      margin-top:26px;
+    }
+
+    .stat{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      text-align:center;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.6rem;
+      line-height:1.1;
+      margin-bottom:6px;
+      color:var(--accent);
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:24px;
+    }
+
+    .step{
+      position:relative;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:28px;
+    }
+
+    .step-number{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      color:#fff;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      margin-bottom:18px;
+    }
+
+    .cta{
+      background:linear-gradient(135deg, #0d6efd 0%, #1a7fff 50%, #0958d9 100%);
+      color:#fff;
+      border-radius:30px;
+      padding:42px;
+      box-shadow:0 24px 50px rgba(13,110,253,0.24);
+      display:flex;
+      gap:24px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .cta h2{
+      margin:0 0 10px;
+      font-size:clamp(1.8rem, 3vw, 2.7rem);
+      line-height:1.08;
+    }
+
+    .cta p{
+      margin:0;
+      color:rgba(255,255,255,0.9);
+      max-width:720px;
+    }
+
+    .footer{
+      background:#0b1220;
+      color:rgba(255,255,255,0.82);
+      padding:30px 0 40px;
+      margin-top:90px;
+    }
+
+    .footer-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      font-size:0.95rem;
+    }
+
+    .contact-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-box p{
+      color:var(--muted);
+      margin-top:0;
+    }
+
+    .contact-list{
+      list-style:none;
+      padding:0;
+      margin:0 0 22px;
+      display:grid;
+      gap:10px;
+    }
+
+    .contact-list li{
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fbfdff;
+    }
+
+    @media (max-width: 1020px){
+      .hero-grid,
+      .grid-3,
+      .steps,
+      .hero-points,
+      .grid-2,
+      .audience{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 760px){
+      .nav{
+        padding:10px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .nav-links{
+        gap:14px;
+      }
+      .hero{
+        padding-top:48px;
+        padding-bottom:56px;
+      }
+      .section{
+        padding:68px 0;
+      }
+      .cta{
+        padding:30px 24px;
+      }
+      .stats{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand">Akademische <span>Nachhilfe</span></a>
+      <nav class="nav-links">
+        <a href="#faecher">Fächer</a>
+        <a href="#hochschule-hannover">Hochschule Hannover</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Professionelle Nachhilfe für technische und mathematische Module</div>
+          <h1>Sicher durch <br>Statik, Kinematik <br>und Mathematik 1 &amp; 2</h1>
+          <p>
+            Individuelle, strukturierte und zielorientierte Nachhilfe für Studierende – mit besonderem Fokus auf
+            Studiengänge der <strong>Hochschule Hannover</strong>. Verständliche Erklärungen, prüfungsnahe Vorbereitung
+            und persönliche Unterstützung bei typischen Problemthemen.
+          </p>
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-primary">Unverbindlich anfragen</a>
+            <a href="#faecher" class="btn btn-secondary">Fächer ansehen</a>
+          </div>
+          <div class="hero-points">
+            <div class="hero-point">
+              <strong>Prüfungsorientiert</strong>
+              Gezielte Vorbereitung auf Klausuren, Übungen und Wiederholungsversuche.
+            </div>
+            <div class="hero-point">
+              <strong>Individuell erklärt</strong>
+              Komplexe Inhalte verständlich, strukturiert und auf dein Niveau angepasst.
+            </div>
+            <div class="hero-point">
+              <strong>Flexibel &amp; persönlich</strong>
+              Online oder nach Absprache – abgestimmt auf deinen Studienalltag.
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Besonders geeignet für</h3>
+          <div class="info-list">
+            <div class="info-item">Studierende technischer und ingenieurwissenschaftlicher Studiengänge</div>
+            <div class="info-item">Mathematische Grundlagenmodule in den ersten Semestern</div>
+            <div class="info-item">Studierende der Hochschule Hannover mit hohem Anspruch an Struktur und Qualität</div>
+            <div class="info-item">Weitere Fächer auf Anfrage – je nach Modul und Bedarf</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="faecher">
+      <div class="container">
+        <div class="section-title">
+          <div class="tag">Fächer</div>
+          <h2>Nachhilfe in anspruchsvollen Kernmodulen</h2>
+          <p>
+            Der Unterricht ist auf typische Schwierigkeiten im Studium ausgerichtet und verbindet Theorie,
+            Rechenwege und anwendungsbezogene Aufgaben.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Statik</h3>
+            <p>Fundierte Unterstützung bei Grundlagen, Systemverständnis und klausurrelevanten Rechenmethoden.</p>
+            <ul class="checklist">
+              <li>Freikörperbilder und Gleichgewichtsbedingungen</li>
+              <li>Lagerreaktionen, Schnittgrößen und Tragwerke</li>
+              <li>Systematisches Lösen komplexer Aufgaben</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Kinematik</h3>
+            <p>Verständliche Herleitung von Bewegungszusammenhängen und sichere Anwendung in Übungsaufgaben.</p>
+            <ul class="checklist">
+              <li>Geradlinige und ebene Bewegungen</li>
+              <li>Geschwindigkeit, Beschleunigung, Bahnkurven</li>
+              <li>Formeln sicher verstehen statt nur auswendig lernen</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Mathematik 1 &amp; 2</h3>
+            <p>Strukturierte Begleitung durch die zentralen mathematischen Grundlagen im Studium.</p>
+            <ul class="checklist">
+              <li>Analysis, Differential- und Integralrechnung</li>
+              <li>Lineare Algebra, Matrizen und Vektoren</li>
+              <li>Folgen, Reihen, Gleichungssysteme und mehr</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="hochschule-hannover">
+      <div class="container audience">
+        <div class="highlight">
+          <div class="section-title" style="margin-bottom:0;">
+            <div class="tag">Schwerpunkt</div>
+            <h2>Besonders für Studiengänge der Hochschule Hannover</h2>
+            <p>
+              Die Nachhilfe richtet sich gezielt an Studierende, die in technischen, mathematischen oder
+              ingenieurwissenschaftlichen Modulen eine professionelle und verlässliche Unterstützung suchen.
+            </p>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>1:1</strong>
+              Persönliche Betreuung
+            </div>
+            <div class="stat">
+              <strong>klar</strong>
+              Strukturiertes Vorgehen
+            </div>
+            <div class="stat">
+              <strong>flexibel</strong>
+              Weitere Fächer auf Anfrage
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <h3>Weitere Fächer auf Anfrage</h3>
+          <p>
+            Neben Statik, Kinematik und Mathematik 1 &amp; 2 ist auch Unterstützung in weiteren Fächern möglich –
+            abhängig von Studiengang, Modulinhalt und aktueller Fragestellung.
+          </p>
+          <ul class="contact-list">
+            <li>Unterstützung bei verwandten technischen Grundlagenfächern</li>
+            <li>Hilfe bei Übungsblättern, Verständnisproblemen und Klausurvorbereitung</li>
+            <li>Individuelle Einschätzung nach kurzer Beschreibung des Moduls</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-primary">Modul anfragen</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="vorteile">
+      <div class="container">
+        <div class="section-title">
+          <div class="tag">Vorteile</div>
+          <h2>Professionell, effizient und auf dein Studium abgestimmt</h2>
+          <p>
+            Ziel ist nicht nur das Lösen einzelner Aufgaben, sondern ein nachhaltiges Verständnis, das dich in
+            Übungen, Tutorien und Prüfungen sicherer macht.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Didaktisch klar aufgebaut</h3>
+            <ul class="checklist">
+              <li>Schritt-für-Schritt-Erklärungen statt unübersichtlicher Kurzlösungen</li>
+              <li>Verknüpfung von Theorie, Formeln und praktischer Anwendung</li>
+              <li>Fokus auf typische Fehlerquellen und sichere Lösungsstrategien</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Ideal für Klausurphasen</h3>
+            <ul class="checklist">
+              <li>Gezielte Wiederholung relevanter Themengebiete</li>
+              <li>Bearbeitung typischer Aufgabentypen unter Prüfungsbedingungen</li>
+              <li>Priorisierung der Inhalte mit dem größten Hebel für deinen Erfolg</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="ablauf">
+      <div class="container">
+        <div class="section-title">
+          <div class="tag">Ablauf</div>
+          <h2>So läuft die Nachhilfe ab</h2>
+          <p>
+            Unkompliziert, zielgerichtet und transparent – damit du schnell die Unterstützung bekommst, die du im
+            Studium wirklich brauchst.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Anfrage senden</h3>
+            <p>Teile kurz dein Fach, dein Modul und deine aktuellen Schwierigkeiten mit.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Bedarf klären</h3>
+            <p>Die Inhalte werden passend zu deinem Studiengang und deinem Kenntnisstand eingeordnet.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Gezielt lernen</h3>
+            <p>Mit verständlichen Erklärungen, passenden Aufgaben und klarem Fokus auf dein Lernziel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Jetzt professionelle Nachhilfe anfragen</h2>
+            <p>
+              Für <strong>Statik</strong>, <strong>Kinematik</strong>, <strong>Mathematik 1 &amp; 2</strong> sowie
+              weitere Fächer auf Anfrage – besonders für Studierende der <strong>Hochschule Hannover</strong>.
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-secondary" href="mailto:deine-email@example.com">deine-email@example.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>© 2026 Akademische Nachhilfe</div>
+      <div>Professionelle Unterstützung für Studium, Verständnis und Prüfungsvorbereitung</div>
+    </div>
+  </footer>
+</body>
+</html>
